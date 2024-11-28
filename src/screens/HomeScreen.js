@@ -1,24 +1,35 @@
-import * as React from 'react';
-import { Button, View, Text } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+// src/screens/HomeScreen.js
+import React from 'react';
+import { View, Text, Button, TouchableOpacity, StyleSheet } from 'react-native'; // Asegúrate de importar todos los componentes necesarios
 
 function HomeScreen({ navigation }) {
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+    <View style={styles.container}>
       <Text>Home Screen</Text>
-      <TouchableOpacity onPress={() => {
-        navigation.navigate('Details');
-      }}>
-        <Text>Ir a DetailsScreen</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate('Details')}
+      />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate('Emergency')}
+      >
+        <Text>Go to Emergency Screen</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => {
-        navigation.navigate('EmergencyScreen');
-      }}>
-        <Text>Ir  llamada </Text>
-      </TouchableOpacity>
-
     </View>
   );
 }
+
+// Estilos
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  button: {
+    marginTop: 20,
+  },
+});
 
 export default HomeScreen;
